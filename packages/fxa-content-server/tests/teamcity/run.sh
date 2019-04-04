@@ -82,6 +82,10 @@ export npm_config_tmp=~/fxatemp
 
 set -o xtrace # echo the following commands
 
+echo @@@@@@@@@@@@@@@@@@@
+pwd
+ls -lart
+
 npm ci
 
 # output the Firefox version number
