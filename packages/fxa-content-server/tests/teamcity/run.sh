@@ -69,10 +69,10 @@ else
 fi
 echo "GIT_COMMIT          $GIT_COMMIT"
 
-WORKDIR=fxa-"$FXA_TEST_NAME"/packages/fxa-content-server
+WORKDIR=fxa-"$FXA_TEST_NAME"
 rm -rf "$WORKDIR"
 git clone https://github.com/mozilla/fxa.git -b master "$WORKDIR"
-cd "$WORKDIR"
+cd "$WORKDIR"/packages/fxa-content-server
 git checkout $GIT_COMMIT
 git show --summary
 
@@ -82,7 +82,6 @@ export npm_config_tmp=~/fxatemp
 
 set -o xtrace # echo the following commands
 
-# install y'all
 npm ci
 
 # output the Firefox version number
